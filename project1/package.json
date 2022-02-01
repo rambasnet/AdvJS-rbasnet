@@ -1,0 +1,19 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "my first game for advanced JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/rambasnet/AdvJS-rbasnet"
+  },
+  "keywords": [
+    "game",
+    "cli"
+  ],
+  "author": "Ram Basnet",
+  "license": "MIT. 2022 All rights reserved."
+}

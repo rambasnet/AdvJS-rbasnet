@@ -37,13 +37,13 @@
         currency: 'USD',
       });
       //formatter.format(2500); /* $2,500.00 */
-      M = formatter.format(M);
-      document.getElementById('monthly').innerHTML = M;
+      let ans = formatter.format(M);
+      document.getElementById('monthly').innerHTML = ans;
     }
   </script>
 </head>
 
-<body onload="monthlyPayment()">
+<body onload="monthlyPayment();">
   <div class="container" style="width: 700px;">
     <div style="text-align: center">
       <h1>Mortgage Calculator</h1>
@@ -59,7 +59,7 @@
             <div class="mb-3">
               <label for="price" class="form-label">Home Price</label>
               <input type="number" class="form-control" id="price" min="50000" max="1000000" value="350000" required
-                onkeyup="monthlyPayment()">
+                onkeyup="monthlyPayment();">
             </div>
             <div class="mb-3">
               <label for="down" class="form-label">Down Payment</label>
@@ -111,8 +111,8 @@
     <div style="background-color:rgb(29, 29, 75); height:200px; color:wheat; margin-top: 10px">
       <h3 style="padding: 10px;">Your monthly payment will be <span id="monthly">{}</span></h3>
       <div class="row">
-        <div class="col-4">
-          <p>Chart</p>
+        <div class="col-4" id="myChart">
+          <p>chart</p>
         </div>
         <div class="col-8">
           <p>breakdown</p>

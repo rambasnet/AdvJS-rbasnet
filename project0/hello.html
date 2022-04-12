@@ -1,7 +1,25 @@
+<!DOCTYPE html>
 <html>
+<script>
+  console.log('hello world!');
+  console.log(2 + 2);
+  console.log(2 ** 10);
+</script>
+<head>
+  
+</head>
+
+<body>
+  <h1 style="color:red">Heading 1</h1>
+  <p>Hello HTML</p>
+  <a href="http://rambasnet.github.io" target="_blank">Click Me!</a>
+  <div id="demo">
+    <p>Change me!</p>
+  </div>
   <script>
-    console.log('hello world!');
-    console.log(2+2);
-    console.log(2**10);
+    document.getElementById('demo').innerHTML = "<strong>You're changed!</strong><br />";
+    document.write('Hi there...');
   </script>
+</body>
+
 </html>

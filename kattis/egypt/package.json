@@ -1,0 +1,15 @@
+{
+  "name": "egypt",
+  "version": "1.0.0",
+  "description": "Kattis egypt solution",
+  "main": "egypt.js",
+  "scripts": {
+    "test": "jest",
+    "kattis_test": "cat 1.in | node egypt.js | diff - 1.ans && echo \"All Kattis samples passed...\""
+  },
+  "author": "Ram Basnet",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^27.5.1"
+  }
+}

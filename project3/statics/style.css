@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(242, 181, 189);
+  margin-right: auto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  color: chartreuse;
+  background-color: #837cd1;
+}
+
+table, td, th {
+  border-collapse: collapse;
+  border: 1px solid red;
+}
+
+td, th {
+  padding: 5px;
+  margin: 10px;
+}

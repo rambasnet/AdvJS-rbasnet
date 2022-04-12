@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+  <script>
+    function updateLoanType(year) {
+      let element = document.getElementById('loantype');
+      element.value = year;
+    }
+
+    function calculateP() {
+      let price = Number(document.getElementById('price').value);
+      let downPayment = Number(document.getElementById('down').value);
+      let Principal = price - downPayment;
+      return Principal;
+    }
+
+    function monthlyPayment() {
+      let P = calculateP();
+      console.log(P);
+      let I = Number(document.getElementById('rate').value) / 100 / 12;
+      let N = Number(document.getElementById('loantype').value) * 12;
+      // M = P [ I ( 1 + I )^N ] / [ ( 1 + I )^N – 1 ]
+      let M = (P * (I * (1 + I) ** N)) / ((1 + I) ** N - 1);
+      // Create our number formatter.
+      // https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
+      var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
+      //formatter.format(2500); /* $2,500.00 */
+      M = formatter.format(M);
+      document.getElementById('monthly').innerHTML = M;
+    }
+  </script>
+</head>
+
+<body onload="monthlyPayment()">
+  <div class="container" style="width: 700px;">
+    <div style="text-align: center">
+      <h1>Mortgage Calculator</h1>
+      <p>Based on <a href="https://www.valuepenguin.com/mortgages/mortgage-payments-calculator" target="_blank">this
+          source.</a></p>
+    </div>
+    <div class="card">
+      <h5 class="card-header">How much will your monthly property expense be?</h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title">Property Details</h5>
+            <div class="mb-3">
+              <label for="price" class="form-label">Home Price</label>
+              <input type="number" class="form-control" id="price" min="50000" max="1000000" value="350000" required
+                onkeyup="monthlyPayment()">
+            </div>
+            <div class="mb-3">
+              <label for="down" class="form-label">Down Payment</label>
+              <input type="number" class="form-control" id="down" value="70000">
+            </div>
+          </div>
+          <div class="col">
+            <h5 class="card-title">Mortgage Details</h5>
+            <div class="mb-3">
+              <label for="rate" class="form-label">Mortgage Rate</label>
+              <input type="text" class="form-control" id="rate" value="3.49">
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="loantyped"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Loan Type
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="loantyped">
+                    <li><a class="dropdown-item" href="#" onclick="updateLoanType(15)">15 Years</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLoanType(30)">30 Years</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" id="loantype" placeholder="15" disabled value="30">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <h5 class="card-title">Other Expenses</h5>
+            <div class="mb-3">
+              <label for="tax" class="form-label">Annual Property Taxes</label>
+              <input type="number" class="form-control" id="tax" value="4375">
+            </div>
+            <div class="mb-3">
+              <label for="insurance" class="form-label">Annual Home Insurance</label>
+              <input type="number" class="form-control" id="insurance" value="1225">
+            </div>
+            <div class="mb-3">
+              <label for="hoa" class="form-label">Monthly HOA Fees</label>
+              <input type="number" class="form-control" id="hoa" value="50">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background-color:rgb(29, 29, 75); height:200px; color:wheat; margin-top: 10px">
+      <h3 style="padding: 10px;">Your monthly payment will be <span id="monthly">{}</span></h3>
+      <div class="row">
+        <div class="col-4">
+          <p>Chart</p>
+        </div>
+        <div class="col-8">
+          <p>breakdown</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

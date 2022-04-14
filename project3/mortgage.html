@@ -17,13 +17,18 @@
 </head>
 
 <body onload="updateAnswer();">
-  <div class="container" style="width: 700px;">
-    <div style="text-align: center">
-      <h1>Mortgage Calculator</h1>
-      <p>Based on <a href="https://www.valuepenguin.com/mortgages/mortgage-payments-calculator" target="_blank">this
-          source.</a></p>
+  <div id="main" class="container" style="width: 700px;">
+    <div id="heading" style="text-align: center" class="row">
+      <div class="col-3">
+        <img src="statics/pic1.jpg" style="height: 100px;">
+      </div>
+      <div class="col-9">
+        <h1>Mortgage Calculator</h1>
+        <p>Based on <a href="https://www.valuepenguin.com/mortgages/mortgage-payments-calculator" target="_blank">this
+            source.</a></p>
+      </div>
     </div>
-    <div class="card">
+    <div id="form" class="card">
       <h5 class="card-header">How much will your monthly property expense be?</h5>
       <div class="card-body">
         <div class="row">
@@ -83,41 +88,62 @@
         </div>
       </div>
     </div>
-    <div style="background-color:rgb(29, 29, 75); color:wheat; margin-top: 10px; padding: 10px;">
+    <div id="result" style="background-color:rgb(210, 210, 237); margin-top: 10px; padding: 10px;">
       <h3 style="padding: 10px;">Your monthly payment will be <span id="monthly">{}</span></h3>
-      <div class="row" style="height:300px">
-        <div class="col-4" id="myChart">
+      <div class="row">
+        <div class="col-5" id="myChart">
           <p>chart</p>
         </div>
-        <div class="col-8">
+        <div class="col-7">
           <table class="table">
-            <thead>
-              <tr style="color:blue">
-                <th scope="row">Principal & Interest</th>
-                <th scope="row" id="ansPrincipal" style="text-align: right;">{}</th>
-              </tr>
-            </thead>
-            <thead>
-              <tr style="color:red">
-                <th scope="row">Property Taxes</th>
-                <th scope="row" id="ansTax" style="text-align: right;">{}</th>
-              </tr>
-            </thead>
-            <thead>
-              <tr style="color:green; border-bottom: 2px solid white;">
-                <th scope="row">Homeowner's Insurance</th>
-                <th scope="row" id="ansInsurance" style="text-align:right">{}</th>
-              </tr>
-            </thead>
-            <thead>
-              <tr style="color:orange">
-                <th scope="row">HOA Fees</th>
-                <th scope="row" id="ansHOA" style="text-align:right">{}</th>
-              </tr>
-            </thead>
+            <tr style="color:blue" class="row-border">
+              <th scope="row">Principal & Interest</th>
+              <th scope="row" id="ansPrincipal" style="text-align: right;">{}</th>
+            </tr>
+            <tr style="color:red" class="row-border">
+              <th scope="row">Property Taxes</th>
+              <th scope="row" id="ansTax" style="text-align: right;">{}</th>
+            </tr>
+            <tr style="color:green;" class="row-border">
+              <th scope="row">Homeowner's Insurance</th>
+              <th scope="row" id="ansInsurance" style="text-align:right">{}</th>
+            </tr>
+            <tr style="color:orange" class="row-border">
+              <th scope="row">HOA Fees</th>
+              <th scope="row" id="ansHOA" style="text-align:right">{}</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <h3 style="padding: 10px; text-align: center;">Your total payment will be</h3>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Total Loan Amount</h5>
+            <div class="card-body" style="text-align: center;">
+              <h5 id="total-loan">{}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Total Interest Paid</h5>
+            <div class="card-body" style="text-align: center;">
+              <h5 id="total-interest">{}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Total All Payment</h5>
+            <div class="card-body" style="text-align: center;">
+              <h5 id="grand-total">{}</h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
 </body>

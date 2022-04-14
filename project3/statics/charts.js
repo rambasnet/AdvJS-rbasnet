@@ -7,7 +7,7 @@ function drawPieChart() {
       ['Expenses Typle', 'Monthly Amount'],
       ['Principal & Interest', calculatePrincipalAndInterest()],
       ['Property Taxes', monthlyTaxes()],
-      ["Homewoner's Insurance", monthlyHOA()],
+      ["Homewoner's Insurance", monthlyInsurance()],
       ['HOA Fees', monthlyHOA()]
     ]
   );

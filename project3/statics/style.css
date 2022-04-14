@@ -2,3 +2,7 @@ body {
   background-color: rgb(198, 205, 179);
   margin-right: auto;
 }
+
+.row-border {
+  border-bottom: 2px solid white;
+}

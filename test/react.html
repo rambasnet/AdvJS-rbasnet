@@ -14,7 +14,15 @@
         return <h1>Hello World!</h1>;
       }
       
-      ReactDOM.render(<Hello />, document.getElementById('mydiv'))
+      const x = 15;
+      let text = "Goodbye";
+      if (x < 10) {
+        text = "Hello";
+      }
+
+      const h2 = <h2>{text} beautiful world!</h2>
+
+      ReactDOM.render(h2, document.getElementById('mydiv'))
     </script>
 
   </body>

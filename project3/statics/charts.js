@@ -16,7 +16,7 @@ function drawPieChart() {
     legend: 'none',
     colors: ['blue', 'red', 'green', 'orange'],
     backgroundColor: 'transparent',
-    chartArea:{left:20,top:20,width:'100%', heigh:'100%'}
+    chartArea:{left:20,top:20,width:'100%', height:'100%'}
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('myChart'));

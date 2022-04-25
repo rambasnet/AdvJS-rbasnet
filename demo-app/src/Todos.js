@@ -10,6 +10,7 @@ function Todo(props) {
 
 function Todos() {
   let [todos, setTodos] = React.useState([]);
+
   const addTodo = () => {
     let newTodos = [...todos, {text: document.getElementById('todo_box').value, isDone: false}];
     setTodos(newTodos);
@@ -21,6 +22,7 @@ function Todos() {
     newTodos[index].isDone = true;
     setTodos(newTodos);
   }
+  
   return (
     <>
       <h2>My Todos</h2>

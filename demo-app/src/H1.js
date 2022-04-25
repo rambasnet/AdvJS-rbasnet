@@ -1,6 +1,5 @@
 function MyH() {
   
-  // eslint-disable-next-line no-unused-vars
   function clickMe() {
     window.clickMe();
   }

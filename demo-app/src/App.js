@@ -15,7 +15,8 @@ function App() {
 function Counter() {
   const [count, setCount] = React.useState(0);
   const increment = () => {
-    setCount( (c) => c + 1 );
+    let c = count+1;
+    setCount(c);
   }
 
   return (

@@ -10,14 +10,17 @@ function Todo(props) {
 
 function Todos() {
   let [todos, setTodos] = React.useState([]);
+  let [todo, setTodo] = React.useState({text:"", isDone:false});
 
   const addTodo = () => {
-    let newTodos = [...todos, {text: document.getElementById('todo_box').value, isDone: false}];
+    //let newTodos = [...todos, {text: document.getElementById('todo_box').value, isDone: false}];
+    let newTodos = [...todos, todo];
     setTodos(newTodos);
     //setTodos((t) => [...t, { text: document.getElementById('todo_box').value, isDone: false } ]);
+    setTodo({text:"", isDone:false});
   }
 
-  const markTodo = index => {
+  const markTodo = (index) => {
     let newTodos = [...todos];
     newTodos[index].isDone = true;
     setTodos(newTodos);
@@ -32,7 +35,7 @@ function Todos() {
         )}
       </ul>
       <label>To do:</label>
-      <input type="text" id="todo_box" required></input>
+      <input type="text" id="todo_box" value={todo.text} onChange={(e) => setTodo({text: e.target.value, isDone:false})}></input>
       <button onClick={addTodo} >Add Todo</button>
     </>
   );
